@@ -1,0 +1,6 @@
+tp; uf
+mean; 10
+SE; 0.2
+uf; 10.00+/-0.20
+varname; uf
+Last fixed time : 2021-10-21 14:44:45

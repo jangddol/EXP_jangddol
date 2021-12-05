@@ -1,0 +1,2 @@
+varname; result
+Last fixed time : 2021-10-14 14;55;26

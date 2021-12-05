@@ -1,0 +1,385 @@
+????
+	튜토리얼 코드를 일차로 완성했다.
+	튜토리얼 코드에 uncertainties 라이브러리 안내를 좀 해야한다.
+	pip 뭐시기
+
+
+4_2_2 version
+# 다음 문제를 해결했다.
+	# 데이터를 집어넣은 변수에 다른 형태로 데이터를 집어넣으면 기존의 class variable이 남아있는 현상.
+	# scalarlist 에 range를 넣으면 read에서 인식하지 못하는 문제
+	# Non-addable type 과 함께 타입명이 뜨게 해야함.
+
+# 다음 문제를 해결해야 한다.
+	# linear_rel(A, B+1) 이런식으로 사용할 때 varname을 제대로 인지하지 못하는 현상.
+
+
+
+4_2_1 version / plot 1_2_5
+# 다음 문제를 해결했다.
+	# text 내부에서의 기록 시간 ';' 이 아니라 ':'를 쓰도록 하는것
+	# exp_plot에서 종종 temp와 relation의 type이 다르다고 우기는 경우가 있어서 isinstance(relation, Shvar)를 통해 클래스를 확인하도록 했다.
+	# linear_rel을 C=sh.linear_rel로 사용하면 varname을 정상적으로 인지하지 못하는 오류가 있어서, 모든 return이 있는 Shvar아래의 function을 return self 로 다 바꿔 버렸다.
+
+# 앞으로 다음과 같은 문제를 해결해야 한다.
+	# 데이터를 집어넣은 변수에 다른 형태로 데이터를 집어넣으면 기존의 class variable이 남아있는 현상.
+	# linear_rel(A, B+1) 이런식으로 사용할 때 varname을 제대로 인지하지 못하는 현상.
+	# scalarlist 에 range를 넣으면 read에서 인식하지 못하는 문제
+	# Non-addable type 과 함께 타입명이 뜨게 해야함.
+
+4_2_0 version / plot 1_2_4
+# 각종 버그를 잡았다.
+	# setufdatalist에 의해 생긴 origin을 제대로 write/read 하지 못하던 현상
+	# class variable에 있던 datalength와 length에 대한 정리가 이루어지지 못했던 것
+	# window에서 생기는 경로문제 및 파일이름 문제
+	# linfit.linfit으로 이중 콜을 하고 있던 코드
+	# range를 통해 생성된 데이터를 origin에서 제대로 write/read하지 못하던 현상
+		이건 range를 억지로 list로 바꾸는 방법으로 해결
+	
+# 앞으로 다음과 같은 문제를 해결해야한다.
+	# linear_rel 타입의 varname문제
+	# text 내부에서의 기록 시간 ;이 아니라 :를 쓰도록 
+
+
+
+4_1_2 version / plot 1_2_3
+# spyder로 넘어왔다.
+# 전체적인 관습적인 문법들을 수정했다.
+# exp.py에서는 'from ~ import *'를 'import *'로 바꾸었다. (exp_plot.py에서는 안바꿨다.)
+# 현재 spyder로 옮겨와서 안 사실은 다음과 같다.
+	# 구글코랩에서 돌릴때는 Directory의 슬래쉬가 '/' 였는데, 
+	# 윈도우에서는 '\', '\\' 두개인 것 같다.
+	# 둘 중 어느것을 써야할지 잘 모르겠다.
+	# 모든 환경에서 잘 먹힐려면 슬래쉬와 역슬래쉬 모두 사용할 수 있겠끔 만들어야 한다.
+
+
+
+plot 1_2_2
+# plot.y_label이 정상적으로 들어가 있지 않아서 고쳤다.
+
+
+
+
+4_1_1 버젼 / plot 1_2_1
+# scatter는 안해도 될 것 같다.
+# 그냥 FMT에서 라인을 비워버리면 되는 일이다.
+# 애니메이션은 힘들거 같다.
+# 무엇을 더 해야하는가
+# 당분간은 더 기능을 추가하는 것을 하지 말고,
+   디버깅과 함수의 꾸미기에 집중해야 할 것 같다.
+# parameter의 단순화를 위해 xlabel과 ylabel을 Label로 통합하고, 기존의 Lable을 datagraphname으로 바꾸었다.
+# 쓰이지 않던 parameter인 fitlegend를 삭제했다.
+# plot_comp와 plot에 description을 달았다.
+# .slope 와 .intercept만이 ufloat 한개를 저장했는데, ufloat 한개는 str으로 바꾸면서 소수점 이하의 정보의 대부분이 날아간다는 것을 알아냈다.
+    # writeshvartext와 write_superplt를 '{:.16}'.format()을 이용해 수정했다.
+# readshvartext에 desciption을 달았다.
+
+
+
+
+plot 1_2_0
+# write_superplt가 완성되었다.
+# 여기서 수정이 안되는건 아니다.
+# pnginfo를 png에 직접 넣는 것을 시도할 것이다.
+# plot 과 plot_comp를 완성했따.
+# plot_comp에서 시간을 따서 제목에 넣게 만들었다.
+# 텍스트와 플롯을 무조건 저장된다. 컴퓨터가 버틸수있어야 할텐데.
+# pnginfo를 만드는데에 성공한다면, pnginfo를 이용해서 파일을 정리하는 함수를 만드는 것이 좋을 것 같다.
+
+
+
+
+4_1_0 버젼
+# 이거 왜 다시 쓰고 있는건지 모르겠네
+ 
+# 'names', 'grouptp', 'XYdata'에 대한 split_Content 메소드의 작성이 완료되어
+   writeshvartext, readshvartext의 작동이 정상상태로 돌아왔다.
+# printfull의 띄어쓰기에 대한 수정이 다소 있었다.
+
+
+
+
+4_0_3 버젼
+# 코드 길이를 줄이기 위해 else:pass 등의 무의미한 코드를 지웠다.
+    # isinstance pass else raise 구문도 isinstance is False raise로 바꾸었다.
+ 
+# split_Content가 큰일났다.
+    # split(',')이라서 ㅈ된거 같다. 아무래도 writeshvartext에서 ','가 아닌 다른 특수문자를 써야할 것 같다.
+    # 그래서 ';'를 쓰기로 했다.
+    # 그래도 덜 고쳤다.
+
+
+
+
+plot 1_1_2
+# 레전드의 위치에 따라 텍스트의 위치가 달라진다.
+# 기울기의 위치에 따라 텍스트의 위치가 달라진다.
+# FMT를 이용해 마커를 끌 수도 있으며, 라인을 끌 수도 있다. 현재 default는 원 마커와 라인.
+# 레전드 위치의 default를 right로 바꾸고, best를 없앴다.
+# 캔버스 색깔은 canvascolor를 통해 조절할 수 있다.
+    종류는 다음과 같다.
+    * 'red', 'blue', 'green', etc.
+    * (r, g, b, alpha)
+        알파는 투명도, 1일수록 진하다.
+        ex) (1, 0, 0, 0.2) 이쁜 분홍색
+# 그래프 배경도 위와 같은 방식으로 backcolor를 통해 조절할 수 있다.
+# 피팅그래프도 위와 같은 방식으로 fitcolor를 통해 조절할 수 있다.
+# errorbar그래프도 위와 같은 방식으로 datacolor를 통해 조절할 수 있다. 단, 라인과 마커, 에러바의 색깔이 모두 통일화된다.
+# text를 통해 text를 켜고 끌 수 있다.
+ 
+# 남은 기능
+    추가해야할 plot 기능
+    * xticks/yticks 기능
+    * plot, 데이터 저장기능
+    * 데이터 불러오기 기능
+ 
+    추가하고 싶은 plot 기능
+    * confidence bands
+
+
+
+
+4_0_2 버젼 / plot 1_1_1 버젼
+# lintit.py를 고친 것이 main이다.
+# 아주 엉망진창이었다.
+# Coefficient of Determination 함수에서 문제가 발생하여서 이를 찾는데 오래걸렸다.
+# exp, exp_plot 자체는 고친 것이 거의 없다.
+# 추가적으로 금일은 3월 5일이며, 목차를 만들어 개발 속도를 올리는데 기여한것이 크다고 생각한다.
+ 
+#만들어진 것
+    * 레전드 끄기/켜기
+        # Label = None이면 꺼진다.
+
+
+
+
+4_0_1 버젼 / plot 1_1_0 버젼
+# plot의 진척이 상당하다. 거의 다 완성 되었으며, 조금만 손 보면 될 것 같다.
+    현재 plot 기능
+    * 제목 첨부 (기본값 : 끄기(None))
+    * 라벨 첨부 (기본값 : varname)
+    * 레전드 위치 (기본값 : 'best')
+        !!! 'best'는 텍스트의 위치를 고려해주지 않는다.
+    * 텍스트 기능 (기본값 : 넣기)
+    * plot과 fitting graph 자동 그리기 기능
+ 
+    추가해야할 plot 기능
+    * 캔버스 색깔
+    * 그래프 색깔
+    * 피팅그래프 색깔
+    * 레전드 끄기/켜기
+    * 텍스트 끄기/켜기
+    * 마커 끄기/켜기
+    * xticks/yticks 기능
+ 
+    추가하고 싶은 plot 기능
+    * confidence bands
+ 
+# plot의 저장 기능은 아직 완성되지 않았다.
+    # 이건 좀 걸릴 것 같다.
+# 4_0_1는 작지만 중요한 오류들을 고쳤다.
+
+
+
+
+4_0_0 버젼 / plot 1_0_3 버젼
+# plot 1_0_3을 짜는 도중 'double group'타입의 수정을 필요로 하여 다음과 같은 variable을 추가하였다.
+    # '.grouptp' : X와 Y의 .tp를 알려준다.
+    # '.XYdata'  : X와 Y의 값을 알려준다.
+ 
+    # 이에 따라 다음이 달라진다.
+        # Shvar.__init__()
+            # init값이 늘었다.
+        # Shvar.ClassVarList
+            # element의 추가
+        # Shvar.split_Content()
+            # 내용변환 종류를 추가
+                # 아직 끝나지 않음. 어려울 것으로 예상.
+        # Shvar.writeshvartext()
+            # backdata를 22개 원소를 갖는 리스트로 늘렸다.
+        # Shvar.readshvartext()
+            # 불러오는 데이터 종류가 늘었다.
+ 
+# plot 1_0_3에서는 일단 'double group'을 하나 불러와 plot을 두개 불러오는 녀석과 완전히 그리는 녀석 두 개에 집중하기로 결정하였다.
+    # 이름은 plot과 plot_comp
+# plot에 confidence band를 넣고 싶어졌다. 어떻게 넣는 거지.
+# plot의 errorbar를 고려해야한다는 것을 까먹었다.
+    # 다시 만들어야 한다는 뜻
+
+
+
+
+3_2_2 버젼 / plot 1_0_2 버젼
+# writeshvartext와 readshvartext의 경로문제를 어느정도 해결했다.
+    # __name__ == '__main__'일 경우의 문제점은 어떻게 할지 잘 모르겠다.
+        # 애초에 어떻게 문제인지도 잘 모르겠다.
+    # 아닌 경우에는 설치 경로로부터 var를 찾아가도록 만들어 놓았다.
+    # 이제 현 파일 구조를 무너뜨리기 힘들어졌다.
+ 
+# 일단 작업에 착수하기는 했다.
+# 굉장히 힘들 것 같다.
+# exp_plot에 맞춰 exp를 수정하는 일이 많아질 것 같다.
+# 다음 버젼부터는 4_0_0으로 시작할 것 같다.
+# 다음 버젼에서는 다음과 같은 일을 해야한다.
+    # 'double group' 타입에 대해서, x축, y축 데이터를 보관해야 한다.
+    # 이를 이용해 exp_plot에서 'double group'만으로 데이터를 전부 불러온다.
+    # plot함수에서 불러와야 할 입력이 한 두개가 아니다 보니, 
+        입력 관리도 중요할 것 같다... 
+        그냥 'double group'에다가 새로운 녀석을 넣는 것도 좋을 것 같다.
+        새로운 클래스를 짠다던가... 그게 좋을 것 같다.
+    # plot을 여러개 불러올 경우 어떻게 할지도 문제다.
+        # 그냥 문제다 문제
+    # subplot은 어떻게 하지....
+    # ㅈ됐다. 괜히 건드리는 건가.
+
+
+
+
+나타난 의문점 2021/2/12
+# 3_2_1에서 operator의 호환성을 늘리겠다고 했는데, 
+어디서 문제가 된다고 생각한건지 잘 모르겠다. 
+int, float, ufloat과 호환이 되면 다 된거 아닌가? 
+왜 갑자기 이런 생각을 한건지는 모르겠다. 
+아마 빠르게 v.4로 넘어갈 것 같다. 
+현재로써는 그냥 실험데이터를 이용한 검증을 할 것 같다.
+
+
+
+
+3_2_1 버젼
+# readshvartext를 이용해 import하면 varname이 저장된 내용 그대로 넘어온다는 문제를 해결했다. 
+    얼마나 포용성있게 해결된건지는 모르겠지만, 개인적으로는 extract_varname이랑 원리는 같다고 생각한다.
+# 몇몇 함수에 description을 달았다.
+# 몇몇 함수에서 split을 이용해 string의 내용을 지우던 것을 replace를 이용하도록 바꾸었다.
+# 몇몇 함수에서 replace를 잘못 사용하던 것을 고쳤다.
+# var 폴더의 각 날짜 폴더 내에 .ipynb_checkpoint라는 폴더가 생성된다는 사실을 알았다. 
+    이는 시스템파일로 보이며, 마운트된 드라이브 창에서는 보이지 않는다. 코드에서 오류를 일으키길래 
+    파일 리스트를 불러올 때 텍스트 파일만 불러오도록 바꾸었다.
+# 3_1_2 버젼 이전에 작성된 var 파일들은 현재와 호환되지 않아서 2021-02-01 파일을 삭제했다.
+# readshvartext에서 imp=True인 경우 writeshvartext가 작동하도록 하였다.
+# 현재 writeshvartext와 readshvartext의 개발은 일단락 났다고 본다. 나머지는 버그의 수정이며, 
+    이는 차차 하도록 한다. 사실 직접 사용해보는게 좋다고 생각한다. 조만간 실험데이터를 하나 가져와야 할 것 같다.
+# 다음 버젼부터는 operator의 호환성을 늘리는 것을 목표로 달리도록 하겠다. 버젼은 middle_number를 넘긴는 것으로 한다.
+# 경로에 대한 불안감이 남아있다. 이는 exp.py로 직접 사용하면서 알아봐야 할 것 같다.
+
+
+
+
+3_2_0 버젼
+# split을 완전히 잘못 이해하고 있었다.
+    # split이 들어가는 모든 코드를 뜯어 고쳤다.
+# Shvar class 내에서 만든 Method에 대해서 'Shvar.'를 붙이는 것을 까먹어서 다시 붙여줬다.
+# int를 str으로 바꿨을때 한자리일 경우 앞에 '0'를 붙이는 경우가 많길래 change_one_to_two_digits 라는 Method를 만들었다.
+# 윤년을 체크하는 부분이 더러워서 윤년을 체크하는 함수를 따로 만들어 주었다.
+# readshvartext의 기본적인 체크가 완료되었다. 심각한 버그는 없어보인다.
+# split_Content에서 플마가 아니라 +/-라는 것을 알아내어서 해당 구문을 바꾸었다.
+# readshvartext를 그대로 다른 variable을 정의할 때 쓰면 varname이 그대로 오는 문제가 생겼다. 이를 어떻게 고칠지는 아직 고민이다.
+# test_func에서 extract_varname으로 이름을 바꾸었다.
+
+
+
+
+3_1_2 버젼
+# writeshvartext에서 내용이 None이면 작성되지 않도록 변경하였다.
+# 현재의 시간, 또는 지정한 시간을 날짜텍스트, 시간텍스트로 바꾸는 함수를 만들었다.
+    # 이를 이용해 writeshvartext, readshvartext의 코드를 정리했다.
+# ClassVariable에 ClassVarList를 추가하였다. 이를 이용해 writeshvartext에서 쉽게 작성하도록 한다.
+# 불러온 텍스트의 한줄 한줄을 알맞는 type의 변수로 바꾸는 함수를 만들었다.
+# 불러온 파일 이름을 varname, hour, minute으로 찢는 함수를 만들었따.
+# 이를 이용해 현재 readshvartext를 1차적으로 완성하였다.
+# 검증은 아직 못함.
+ 
+# 현재 안 된 것들.
+    # RIC코드를 test_func라고 이름을 바꾸어서 모든 operator에다가 바꿔치기 해놓았다.
+        # 이에 대한 이름을 다시 선정하여야 한다.
+    # shvar object의 operator의 호환성을 늘려야 한다.
+        # 평범하게 +가 먹히는 애들을 위한 if 항을 추가해야 한다.
+
+
+
+
+3_1_1 버젼
+# readshvartext가 개발중에 있다.
+    # 현재 입력받은 날짜와 시간에 대한 유효성 검사와 스트링으로의 전환을 끝냈다.
+    # 해당하는 디렉토리를 찾고 없으면 알려준다.
+    # 해당하는 텍스트를 찾고 없으면 알려준다.
+    # 해당하는 텍스트가 있으면 exist variable이 1로 바뀌고,
+        # 이렇게 되어야 print와 import가 가능해진다.
+# readshvartext를 개발하다 보니 writeshvartext에서 class variable이 None이면 내용을 안 넣는게 좋다는 생각을 했다.
+    # 이에 대한 개발을 3_1_2에서 생각하도록 한다.]
+# readshvartext에서 time의 latest를 잘못생각하고 있었다.
+    # 파일의 리스트를 보고 없으면 없다고 알려주고,
+    # 있으면 해당 varname의 파일을 찾고 없으면 알려주고
+    # 있으면 그 중 시간을 비교해 가장 빠른 녀석을 찾아서 불러와야 한다.
+    # 이는 3_1_2에서 하도록 한다.
+
+
+
+
+3_1_0 버젼
+# writeshvartext의 초기 버젼이 완성되었다.
+    # 시간을 불러와 날짜와 시간을 텍스트화 할 수 있다.
+    # 날짜를 폴더의 이름, 시간을 파일의 이름에 사용한다.
+    # 작성시간을 텍스트에 저장한다.
+    # 텍스트는 쉼표를 이용해 2열로 저장한다.
+    # 폴더를 불러오는 것, 파일을 작성하는 것이 가능하다.
+# 2_5_1에서 scalar - scalarlist를 하면 .tp = None 이 나오는 것을 고쳤다.
+    # shvar object에 class variable을 그냥 더했더니 생겼던 문제다.
+    # shvar object의 operator의 호환성을 늘려야 한다.
+        # 평범하게 +가 먹히는 애들을 위한 if 항을 추가해야 한다.
+# shvar object의 생성, 계산에서 자동으로 wrtieshvartext를 작동시키게 했다.
+# 이에 대한 검증은 다음 버젼에서 한다. 현재는 1차적인 검증만 완료.
+# readshvartext의 개발은 다음 버젼에서.
+
+
+
+
+3_0_0 버젼
+# __init__ 에 self.names가 없어서 추가했다.
+# writeshvartext와 readshvartext의 기본 틀을 텍스트로 작성했다.
+# 앞으로 이에 대한 개발이 필요
+# 필요에 의해 os와 datetime, pytz를 import 했다.
+
+
+
+
+2_5_2 버젼
+# __div__에서 여전히 temp를 쓰고 있는 것을 잡았따.
+    # result로 바꾸었다.
+# __mul__에서 scalar other에 대해서 other.scalar 안해놓은 것을 고쳤다.
+
+
+
+
+2_5_1 버젼
+# RIC코드를 test_func라고 이름을 바꾸어서 모든 operator에다가 바꿔치기 해놓았다.
+# 코드가 그나마 깔끔해졌다.
+# 당분간은 디버깅과 코드 깔끔하게 만들기 작업을 해야할 것 같다.
+# __mul__에서 터지지 않는 것을 확인했다.
+    # 그새 고쳐놓았던 건가
+# simplelist의 이름을 simpleuflist로 바꾸었다.
+    # 함수 이름은 나중에 한번더 조지는 걸로 한다.\
+# length의 정의가 혼동되어있는 것을 발견했다.
+    # ufdata 나 ufdatalist에서는 data의 길이이고, 
+    # scalarlist에서는 scalarlist의 길이이다.
+    # 이에 대해서 구분을 둘 필요가 있어 보인다.
+    # datalength와 length에 대한 구분을 두도록 하고
+    # 이에 대한 반영을 2_5_2 이후에서 하도록 한다.
+# scalar - scalarlist를 하면 .tp = None이 나온다.
+    # add에서도 그럴 수 있다.
+        # 역시 add에서도 그랬다.
+    # 무엇이 문제인지 알아보아야한다.
+    # 이 역시 2_5_2 이후에서 다루도록 한다.
+
+
+
+
+2_5_0 버젼
+# RIC의 코드를 모든  operator 에다가 꼴아박아서 일단은 varname 을 뽑아내도록 하긴 했다.
+# 코드가 ㅈㄴ 더럽다
+# 맘에 안든다
+# 어떻게 할 수 없는건가
+# 아무쪼록 바꾸고 싶다
+# 당분간은 디버깅의 기간이 될 것 같다.
+# __add__에서 scalar + scalar 에서 터지는 것을 확인하여 디버깅 하였다.
+    # __mul__에서도 터질 것 같다.

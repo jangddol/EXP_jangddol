@@ -1,0 +1,7 @@
+Drew Time : 2021-10-21_16:31:51
+names : ['X', 'Y']
+grouptp : ['scalarlist', 'uflist']
+XYdata : [[77, 300], [10.0+/-0.3, 20.0+/-0.3]]
+slope : 0.04484304932735427+/-0.00190252945610730
+intercept : 6.547085201793722+/-0.416669153471099
+Coefficient of Determination : 1.0

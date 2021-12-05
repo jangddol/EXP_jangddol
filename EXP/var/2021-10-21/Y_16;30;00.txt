@@ -1,0 +1,6 @@
+tp; uflist
+mean; [10.0, 20.0]
+SE; [0.3, 0.3]
+uf; [10.0+/-0.3, 20.0+/-0.3]
+varname; Y
+Last fixed time : 2021-10-21 16:31:51

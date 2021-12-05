@@ -1,0 +1,9 @@
+tp; double group
+intercept;              0.0+/-0
+slope;              1.0+/-0
+R2; 1.0
+names; ['A', 'B']
+grouptp; ['scalarlist', 'scalarlist']
+XYdata; [[0, 1, 2, 3, 4, 5], [0.0, 1.0, 2.0, 3.0, 4.0, 5.0]]
+varname; F
+Last fixed time : 2021-10-21 14:11:14
